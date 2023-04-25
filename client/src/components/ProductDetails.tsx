@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 
 import storeItems from "../data/items.json"
 import { formatCurrency } from "../utilities/formatCurrency"
+import { Review } from "./Review";
 
 
 
@@ -31,17 +32,21 @@ export function ProductDetails() {
                     </div>
                     <div className="col">
                         <h3>Product name: {item?.name}</h3>
-                        <h4>Price: {formatCurrency(item?.price)}</h4>
+                        <h4>Price: {formatCurrency(item?.price)}</h4> <br />
+                        <h5>Description:</h5>
+                        <p> { item?.description } </p>
                     </div>
                 </div>
 
                 <div className="pt-5">
                     <h5>Write a Review on the product</h5>
                     <div className="input-group mb-3">
-                        <textarea class="form-control" aria-label="With textarea"></textarea>
+                        <textarea className="form-control" aria-label="With textarea"></textarea>
                         <button className="btn btn-primary">submit</button>
                     </div>
                 </div>
+
+                <Review />
 
             </div>
 
