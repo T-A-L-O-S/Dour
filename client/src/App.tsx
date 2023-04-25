@@ -8,6 +8,10 @@ import { ShoppingCartProvider } from './context/ShoppingCartContext'
 import backgroundTexture from '/imgs/bgTexture.jpg';
 import { Footer } from './components/Footer'
 import { ProductDetails } from './components/ProductDetails'
+import { LoginChoice } from './pages/LoginChoice'
+import { CustomerLogin } from './pages/CustomerLogin'
+import { VendorLogin } from './pages/VendorLogin'
+
 
 function App() {
 
@@ -23,17 +27,20 @@ function App() {
       <Navbar />
 
       <div style={bgImageStyle}>
-      <Container className='pb-4'>
+        <Container className='pb-4'>
           <Routes>
-            <Route path='/' element = { <Home /> } />
-            <Route path="/store" element = { <Store /> } />
-            <Route path='/store/:productId' element = { <ProductDetails /> } />
-            <Route path='/contact-us' element = { <ContactUs /> } />
+            <Route path='/' element={<Home />} />
+            <Route path="/store" element={<Store />} />
+            <Route path='/store/:productId' element={<ProductDetails />} />
+            <Route path='/contact-us' element={<ContactUs />} />
+            <Route path='/login-choice' element={<LoginChoice />} />
+            <Route path='/customer-login' element={<CustomerLogin />} />
+            <Route path='/vendor-login' element={<VendorLogin />} />
           </Routes>
-      </Container>
+        </Container>
       </div>
       <Footer />
-      
+
     </ShoppingCartProvider>
   )
 }

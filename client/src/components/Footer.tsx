@@ -2,7 +2,7 @@ import { Container, Row, Col } from 'react-bootstrap';
 
 export function Footer() {
   return (
-    <Container fluid className="text-light pt-5 pb-3" style={{ backgroundColor: '#AD5241' }}>
+    <Container fluid className="text-light pt-5 pb-3" style={{ backgroundColor: '#AD5241', bottom: '0'}}>
       <Container>
         <Row>
           <Col md={3}>

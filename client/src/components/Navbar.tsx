@@ -28,7 +28,7 @@ export function Navbar() {
                     </NavDropdown>
                 </Nav>
                 <Nav style={{ paddingRight: "1rem" }} >
-                    <Nav.Link href="#login">Login</Nav.Link>
+                    <Nav.Link to = "/login-choice" as = { NavLink }>Login</Nav.Link>
                     <Button variant="outline-success">Sign Up</Button>
                 </Nav>
                 {cartQuantity > 0 && (
