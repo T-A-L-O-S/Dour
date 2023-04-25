@@ -3,6 +3,9 @@ import { Form, Button, Container, Row, Col } from 'react-bootstrap';
 
 export function CustomerLogin() {
 
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+
 
     return (
         <Container fluid className="h-100 pt-4">
@@ -12,14 +15,14 @@ export function CustomerLogin() {
                     <Form>
                         <Form.Group>
                             <Form.Label>Email address</Form.Label>
-                            <Form.Control type="email" placeholder="Enter email" />
+                            <Form.Control type="email" placeholder="Enter email"  value={email} onChange={(event) => setEmail(event.target.value)} />
                         </Form.Group>
 
                         <Form.Group>
                             <Form.Label>Password</Form.Label>
-                            <Form.Control type="password" placeholder="Password" />
+                            <Form.Control type="password" placeholder="Password" value={password} onChange={(event) => setPassword(event.target.value)}/>
                         </Form.Group>
-                        
+
                         <Button variant="primary" type="submit" className='mt-4 mb-4'>
                             Login
                         </Button>

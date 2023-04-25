@@ -11,6 +11,7 @@ import { ProductDetails } from './components/ProductDetails'
 import { LoginChoice } from './pages/LoginChoice'
 import { CustomerLogin } from './pages/CustomerLogin'
 import { VendorLogin } from './pages/VendorLogin'
+import { Registration } from './pages/Registration'
 
 
 function App() {
@@ -36,6 +37,7 @@ function App() {
             <Route path='/login-choice' element={<LoginChoice />} />
             <Route path='/customer-login' element={<CustomerLogin />} />
             <Route path='/vendor-login' element={<VendorLogin />} />
+            <Route path='/registration-page' element={<Registration />} />
           </Routes>
         </Container>
       </div>
