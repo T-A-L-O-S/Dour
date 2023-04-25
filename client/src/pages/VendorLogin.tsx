@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Form, Button, Container, Row, Col } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 export function VendorLogin() {
 
@@ -22,9 +23,11 @@ export function VendorLogin() {
                             <Form.Control type="password" placeholder="Password" value={password} onChange={(event) => setPassword(event.target.value)}/>
                         </Form.Group>
                         
-                        <Button variant="secondary" type="submit" className='mt-4 mb-4'>
-                            Login
-                        </Button>
+                        <Link to="/post-product">
+                            <Button variant="secondary" type="submit" className='mt-4 mb-4'>
+                                Login
+                            </Button>
+                        </Link>
                     </Form>
                 </Col>
             </Row>

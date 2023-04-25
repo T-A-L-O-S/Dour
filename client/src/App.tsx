@@ -12,6 +12,7 @@ import { LoginChoice } from './pages/LoginChoice'
 import { CustomerLogin } from './pages/CustomerLogin'
 import { VendorLogin } from './pages/VendorLogin'
 import { Registration } from './pages/Registration'
+import { VendorPostProduct } from './pages/VendorPostProduct'
 
 
 function App() {
@@ -38,6 +39,7 @@ function App() {
             <Route path='/customer-login' element={<CustomerLogin />} />
             <Route path='/vendor-login' element={<VendorLogin />} />
             <Route path='/registration-page' element={<Registration />} />
+            <Route path='/post-product' element={<VendorPostProduct />} />
           </Routes>
         </Container>
       </div>
