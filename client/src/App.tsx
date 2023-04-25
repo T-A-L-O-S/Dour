@@ -7,6 +7,7 @@ import { Navbar } from './components/Navbar'
 import { ShoppingCartProvider } from './context/ShoppingCartContext'
 import backgroundTexture from '/imgs/bgTexture.jpg';
 import { Footer } from './components/Footer'
+import { ProductDetails } from './components/ProductDetails'
 
 function App() {
 
@@ -26,7 +27,8 @@ function App() {
           <Routes>
             <Route path='/' element = { <Home /> } />
             <Route path="/store" element = { <Store /> } />
-            <Route path='/about' element = { <ContactUs /> } />
+            <Route path='/store/:productId' element = { <ProductDetails /> } />
+            <Route path='/contact-us' element = { <ContactUs /> } />
           </Routes>
       </Container>
       </div>

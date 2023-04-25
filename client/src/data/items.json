@@ -3,42 +3,42 @@
         "id": 1,
         "name": "Exhaust",
         "price": 20,
-        "imgUrl": "imgs/exhaust.jpg"
+        "imgUrl": "../../public/imgs/exhaust.jpg"
     },
     
     {
         "id": 2,
         "name": "Brakes",
         "price": 13,
-        "imgUrl": "imgs/brakes.jpg"
+        "imgUrl": "../../public/imgs/brakes.jpg"
     },
 
     {
         "id": 3,
         "name": "Suspension",
         "price": 130,
-        "imgUrl": "imgs/suspensions.jpg"
+        "imgUrl": "../../public/imgs/suspensions.jpg"
     },
 
     {
         "id": 4,
         "name": "Alternators",
         "price": 20,
-        "imgUrl": "imgs/alternators.jpg"
+        "imgUrl": "../../public/imgs/alternators.jpg"
     },
 
     {
         "id": 5,
         "name": "Filter",
         "price": 20,
-        "imgUrl": "imgs/filter.jpg"
+        "imgUrl": "../../public/imgs/filter.jpg"
     },
 
     {
         "id": 6,
         "name": "Spark Plug",
         "price": 20,
-        "imgUrl": "imgs/sparkplus.jpg"
+        "imgUrl": "../../public/imgs/sparkplus.jpg"
     }
 
 ]
