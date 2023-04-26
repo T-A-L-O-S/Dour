@@ -25,9 +25,10 @@ export function NavbarVendor( { onLogout } ) {
                 <Nav className="me-auto">
                     <Nav.Link to = "/post-product" as = { NavLink }>Post Product</Nav.Link>
                     <Nav.Link to = "/contact-us" as = { NavLink }>Contact Us</Nav.Link>
-                    <Nav.Link to = "#" as = { NavLink }>Orders</Nav.Link>
+                    <Nav.Link to = "/vendor-order" as = { NavLink }>Orders</Nav.Link>
                 </Nav>
                 <Nav style={{ paddingRight: "1rem" }} >
+                    <Nav className="mt-3"> <h6 className="">Vendor Jack</h6> </Nav>
                     <Nav.Link to = "/" as = { NavLink }>
                     <Button variant="danger" onClick={handleLogout}>Logout</Button>
                     </Nav.Link>
