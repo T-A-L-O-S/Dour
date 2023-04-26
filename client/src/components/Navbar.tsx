@@ -18,18 +18,22 @@ export function Navbar() {
                 </Nav.Link>
 
                 <Nav className="me-auto">
-                    <Nav.Link to = "/Store" as = { NavLink }>Store</Nav.Link>
-                    <Nav.Link to = "/About" as = { NavLink }>Contact Us</Nav.Link>
+                    <Nav.Link to = "/store" as = { NavLink }>Store</Nav.Link>
+                    <Nav.Link to = "/contact-us" as = { NavLink }>Contact Us</Nav.Link>
                     
                     <NavDropdown title="Categories" id="basic-nav-dropdown">
-                        <NavDropdown.Item to = "/Store" as = { NavLink }>Interior</NavDropdown.Item>
+                        <NavDropdown.Item to = "/store" as = { NavLink }>Interior</NavDropdown.Item>
                         <NavDropdown.Item to = "/" as = { NavLink }>Engine Parts</NavDropdown.Item>
                         <NavDropdown.Item to = "/" as = { NavLink }>I don't know</NavDropdown.Item>
                     </NavDropdown>
                 </Nav>
                 <Nav style={{ paddingRight: "1rem" }} >
-                    <Nav.Link href="#login">Login</Nav.Link>
-                    <Button variant="outline-success">Sign Up</Button>
+                    <Nav.Link to = "/login-choice" as = { NavLink }>
+                    <Button variant="primary">Login</Button>
+                    </Nav.Link>
+                    <Nav.Link to = "/registration-page" as = { NavLink }>
+                        <Button variant="outline-success">Sign Up</Button>
+                    </Nav.Link>
                 </Nav>
                 {cartQuantity > 0 && (
                 <Button style={{ width: "3rem", height: "3rem", position: "relative", }}
