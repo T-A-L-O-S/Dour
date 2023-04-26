@@ -1,13 +1,18 @@
+import React, { useState } from 'react';
+
 import { NavDropdown, Button, Nav, Container, Navbar as NavbarBS } from "react-bootstrap"
 import { NavLink } from "react-router-dom"
 import { useShoppingCart } from "../context/ShoppingCartContext"
 
-export function Navbar() {
+export function NavbarVendor( { onLogout } ) {
     
-    const {
-        cartQuantity,
-        openCart,
-    } = useShoppingCart()
+    const [userType, setUserType] = useState('');
+
+    const handleLogout = () => {
+        //  set userType
+        setUserType("base");
+        onLogout(userType);
+    }
     
     return (
         <NavbarBS className="bg-white shadow-sm mb-7">
@@ -18,16 +23,16 @@ export function Navbar() {
                 </Nav.Link>
 
                 <Nav className="me-auto">
+                    <Nav.Link to = "/post-product" as = { NavLink }>Post Product</Nav.Link>
                     <Nav.Link to = "/contact-us" as = { NavLink }>Contact Us</Nav.Link>
+                    <Nav.Link to = "#" as = { NavLink }>Orders</Nav.Link>
                 </Nav>
                 <Nav style={{ paddingRight: "1rem" }} >
-                    <Nav.Link to = "/login-choice" as = { NavLink }>
-                    <Button variant="primary">Login</Button>
-                    </Nav.Link>
-                    <Nav.Link to = "/registration-page" as = { NavLink }>
-                        <Button variant="outline-success">Sign Up</Button>
+                    <Nav.Link to = "/" as = { NavLink }>
+                    <Button variant="danger" onClick={handleLogout}>Logout</Button>
                     </Nav.Link>
                 </Nav>
+                
             </Container>
         </NavbarBS>
     )
