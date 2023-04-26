@@ -18,6 +18,7 @@ import { VendorPostProduct } from './pages/VendorPostProduct'
 import { Navbar } from './components/Navbar'
 import { NavbarVendor } from './components/NavbarVendor'
 import VendorOrder from './pages/VendorOrder'
+import { CheckoutForm } from './pages/checkoutFrom'
 
 function App() {
 
@@ -65,6 +66,7 @@ function App() {
             <Route path='/registration-page' element={<Registration />} />
             <Route path='/post-product' element={<VendorPostProduct />} />
             <Route path='/vendor-order' element={<VendorOrder />} />
+            <Route path='/checkout-form' element={<CheckoutForm />} />
           </Routes>
         </Container>
       </div>

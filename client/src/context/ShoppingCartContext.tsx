@@ -19,6 +19,7 @@ type ShoppingCartContext = {
     cartItems: cartItem[]
     openCart: () => void
     closeCart: () => void
+    emptyCart: () => void
 }
 
 const ShoppingCartContext = createContext({} as ShoppingCartContext)
@@ -81,8 +82,16 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
         })
     }
 
+    function emptyCart(){
+        setCartItems(currItems => {
+            return currItems.map(item => {
+                return { ...item, quantity: 0}
+            })
+        })
+    }
+
     return (
-        <ShoppingCartContext.Provider value={{ getItemQuantity, increaseCartQuantity, decreaseCartQuantity, removeFromCart, cartQuantity, openCart, closeCart, cartItems }}>
+        <ShoppingCartContext.Provider value={{ getItemQuantity, increaseCartQuantity, decreaseCartQuantity, removeFromCart, cartQuantity, openCart, closeCart, cartItems, emptyCart }}>
             {children}
             <ShoppingCart isOpen = {isOpen} />
         </ShoppingCartContext.Provider>
