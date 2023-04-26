@@ -18,17 +18,6 @@ export function ShoppingCart({ isOpen }: ShoppingCartProps) {
         cartItems
     } = useShoppingCart()
 
-    /*
-    const [showComponent, setShowComponent] = useState(false);
-    const [show, setShow] = useState(true);
-    const handleClose = () => setShow(false);
-
-    const showCheckoutMessage = () => {
-        //alert("What's up fam")
-        setShowComponent(true)
-    }
-    */
-
     return (
         <Offcanvas show={isOpen} onHide={closeCart} placement="end" >
             <Offcanvas.Header closeButton>

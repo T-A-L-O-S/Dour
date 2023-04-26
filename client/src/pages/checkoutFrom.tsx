@@ -1,10 +1,15 @@
 import { useState } from "react";
 import { Form, Button, Container } from "react-bootstrap";
 import { CheckoutMessage } from "../components/CheckoutMessage";
-
+import { useShoppingCart } from "../context/ShoppingCartContext"
 
 
 export function CheckoutForm() {
+
+    const {
+        emptyCart,
+    } = useShoppingCart()
+
     const [formData, setFormData] = useState({
         name: "",
         email: "",
@@ -27,11 +32,12 @@ export function CheckoutForm() {
     const handleSubmit = (e) => {
         e.preventDefault();
         // handle form submission logic here
-      };
+    };
 
-  const showCheckoutMessage = () => {
-    setShowComponent(true)
-}
+    const showCheckoutMessage = () => {
+        setShowComponent(true)
+        { emptyCart() }
+    }
 
     return (
         <div className="justify-content-center align-items-center pt-5">
