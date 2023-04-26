@@ -31,7 +31,7 @@ export function VendorLogin( { onLogin } ) {
                             <Form.Control type="password" placeholder="Password" value={password} onChange={(event) => setPassword(event.target.value)}/>
                         </Form.Group>
                         
-                        <Link to="/post-product">
+                        <Link to="/">
                             <Button variant="secondary" type="submit" className='mt-4 mb-4' onClick={handleLogin}>
                                 Login
                             </Button>
