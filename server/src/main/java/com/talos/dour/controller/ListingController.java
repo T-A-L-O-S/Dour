@@ -38,6 +38,7 @@ public class ListingController {
     public List<Product> getAllListingsByVendor(@PathVariable Long id) {
         User user = userRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("User not found!"));
+
         return user.getProductList();
     }
 

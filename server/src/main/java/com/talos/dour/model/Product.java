@@ -1,6 +1,12 @@
 package com.talos.dour.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 
 @Entity
 @Table(name = "product")
@@ -21,13 +27,18 @@ public class Product {
     @Column(name = "category")
     private String category;
 
+    @JsonIgnore
+    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<CartItem> assignedCart = new HashSet<>();
+
     public Product() {}
 
-    public Product(String name, int price, String imagePath, String category) {
+    public Product(String name, int price, String imagePath, String category, Set<CartItem> assignedCart) {
         this.name = name;
         this.price = price;
         this.imagePath = imagePath;
         this.category = category;
+        this.assignedCart = assignedCart;
     }
 
     public long getId() {
@@ -68,5 +79,13 @@ public class Product {
 
     public void setCategory(String category) {
         this.category = category;
+    }
+
+    public Set<CartItem> getAssignedCart() {
+        return assignedCart;
+    }
+
+    public void setAssignedCart(Set<CartItem> assignedCart) {
+        this.assignedCart = assignedCart;
     }
 }

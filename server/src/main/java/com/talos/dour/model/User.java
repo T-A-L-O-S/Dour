@@ -1,8 +1,12 @@
 package com.talos.dour.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
+
 
 @Entity
 @Table(name = "user")
@@ -20,22 +24,30 @@ public class User {
     @Column(name = "type")
     private String type;
 
+    @JsonIgnore
     @OneToMany(targetEntity = Product.class, cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "vendor_id", referencedColumnName = "id")
     private List<Product> productList;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<CartItem> cartItems = new HashSet<>();
+
     public User() {}
 
-    public User(String name, String email, String phone, String type, List<Product> productList) {
+    public User(String name, String email, String phone, String type, List<Product> productList, Set<CartItem> cartItems) {
         this.name = name;
         this.email = email;
         this.phone = phone;
         this.type = type;
         this.productList = productList;
+        this.cartItems = cartItems;
     }
 
     public long getId() {
         return id;
     }
+
     public void setId(long id) {
         this.id = id;
     }
@@ -78,5 +90,13 @@ public class User {
 
     public void setProductList(List<Product> productList) {
         this.productList = productList;
+    }
+
+    public Set<CartItem> getCartItems() {
+        return cartItems;
+    }
+
+    public void setCartItems(Set<CartItem> cartItems) {
+        this.cartItems = cartItems;
     }
 }
