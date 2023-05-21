@@ -34,9 +34,9 @@ public class UserController {
         return ResponseEntity.ok(user);
     }
 
-    @PutMapping("/update/{id}")
-    public ResponseEntity<User> updateUser(@PathVariable Long id, @RequestBody User userDetails) {
-        User user = userRepository.findById(id)
+    @PutMapping("/update")
+    public ResponseEntity<User> updateUser(@RequestBody User userDetails) {
+        User user = userRepository.findById(userDetails.getId())
                 .orElseThrow(() -> new ResourceNotFoundException("User not found!"));
 
         user.setName(userDetails.getName());
@@ -49,9 +49,9 @@ public class UserController {
         return ResponseEntity.ok(updatedUser);
     }
 
-    @DeleteMapping("/delete/{id}")
-    public ResponseEntity<Map<String, Boolean>> deleteUser(@PathVariable Long id) {
-        User user = userRepository.findById(id)
+    @DeleteMapping("/delete")
+    public ResponseEntity<Map<String, Boolean>> deleteUser(@RequestBody User target) {
+        User user = userRepository.findById(target.getId())
                 .orElseThrow(() -> new ResourceNotFoundException("User not found!"));
 
         userRepository.delete(user);
