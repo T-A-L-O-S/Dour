@@ -2,6 +2,8 @@ package com.talos.dour.model;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "user")
 public class User {
@@ -18,14 +20,17 @@ public class User {
     @Column(name = "type")
     private String type;
 
+    @OneToMany(targetEntity = Product.class, cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "vendor_id", referencedColumnName = "id")
+    private List<Product> productList;
     public User() {}
 
-    public User(String name, String email, String phone, String type) {
-        super();
+    public User(String name, String email, String phone, String type, List<Product> productList) {
         this.name = name;
         this.email = email;
         this.phone = phone;
         this.type = type;
+        this.productList = productList;
     }
 
     public long getId() {
@@ -65,5 +70,13 @@ public class User {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public List<Product> getProductList() {
+        return productList;
+    }
+
+    public void setProductList(List<Product> productList) {
+        this.productList = productList;
     }
 }
