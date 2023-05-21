@@ -1,4 +1,4 @@
-package com.talos.server;
+package com.talos.dour;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

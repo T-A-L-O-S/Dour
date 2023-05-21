@@ -1,4 +1,4 @@
-package com.talos.server;
+package com.talos.dour;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -9,5 +9,4 @@ public class DourApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(DourApplication.class, args);
 	}
-
 }
