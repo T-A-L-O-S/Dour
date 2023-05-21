@@ -1,0 +1,12 @@
+/*
+    Make application.properties file, copy the contents of this file
+    and make changes wherever necessary. Remove comments on that file
+    after done copying.
+*/
+
+spring.datasource.url=database_url
+spring.datasource.username=username
+Spring.datasource.password=password
+
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQLDialect
+spring.jpa.hibernate.ddl-auto=update
