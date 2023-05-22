@@ -24,7 +24,7 @@ public class AuthController {
         User user = userRepository.findByNameAndPassword(request.getUsername(), passwordHasher.hashSHA256(request.getPassword()));
 
         if (user != null) {
-            String sessionId = UUID.randomUUID().toString()
+            String sessionId = UUID.randomUUID().toString();
             Cookie session_cookie = new Cookie("session-id", sessionId);
             session_cookie.setMaxAge(3600);
             response.addCookie(session_cookie);
