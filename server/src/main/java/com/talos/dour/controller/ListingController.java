@@ -25,13 +25,15 @@ public class ListingController {
     private ProductRepository productRepository;
 
     @PostMapping("/create/{id}")
-    public User createListing(@RequestBody Product product, @PathVariable Long id) {
+    public Product createListing(@RequestBody Product product, @PathVariable Long id) {
         User user = userRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("User not found!"));
 
         user.getProductList().add(product);
 
-        return userRepository.save(user);
+        userRepository.save(user);
+
+        return user.getProductList().get(user.getProductList().size() - 1);
     }
 
     @GetMapping("/{id}")
