@@ -2,6 +2,7 @@ package com.talos.dour.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.talos.dour.enums.UserTypeEnum;
+import com.talos.dour.utils.PasswordHasher;
 import jakarta.persistence.*;
 
 import java.util.HashSet;
@@ -18,6 +19,8 @@ public class User {
     private long id;
     @Column(name = "name")
     private String name;
+    @Column(name = "password")
+    private String password;
     @Column(name = "email")
     private String email;
     @Column(name = "phone")
@@ -40,8 +43,9 @@ public class User {
 
     public User() {}
 
-    public User(String name, String email, String phone, UserTypeEnum type, List<Product> productList, Set<CartItem> cartItems, List<Order> orderHistory) {
+    public User(String name, String password, String email, String phone, UserTypeEnum type, List<Product> productList, Set<CartItem> cartItems, List<Order> orderHistory) {
         this.name = name;
+        setPassword(password);
         this.email = email;
         this.phone = phone;
         this.type = type;
@@ -64,6 +68,15 @@ public class User {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        PasswordHasher passwordHasher = new PasswordHasher();
+        this.password = passwordHasher.hashSHA256(password);
     }
 
     public String getEmail() {
