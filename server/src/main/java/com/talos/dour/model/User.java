@@ -1,6 +1,7 @@
 package com.talos.dour.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.talos.dour.enums.UserTypeEnum;
 import jakarta.persistence.*;
 
 import java.util.HashSet;
@@ -22,7 +23,7 @@ public class User {
     @Column(name = "phone")
     private String phone;
     @Column(name = "type")
-    private String type;
+    private UserTypeEnum type;
 
     @JsonIgnore
     @OneToMany(targetEntity = Product.class, cascade = CascadeType.ALL, orphanRemoval = true)
@@ -33,15 +34,20 @@ public class User {
     @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<CartItem> cartItems = new HashSet<>();
 
+    @JsonIgnore
+    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Order> orderHistory;
+
     public User() {}
 
-    public User(String name, String email, String phone, String type, List<Product> productList, Set<CartItem> cartItems) {
+    public User(String name, String email, String phone, UserTypeEnum type, List<Product> productList, Set<CartItem> cartItems, List<Order> orderHistory) {
         this.name = name;
         this.email = email;
         this.phone = phone;
         this.type = type;
         this.productList = productList;
         this.cartItems = cartItems;
+        this.orderHistory = orderHistory;
     }
 
     public long getId() {
@@ -76,11 +82,11 @@ public class User {
         this.phone = phone;
     }
 
-    public String getType() {
+    public UserTypeEnum getType() {
         return type;
     }
 
-    public void setType(String type) {
+    public void setType(UserTypeEnum type) {
         this.type = type;
     }
 
@@ -98,5 +104,13 @@ public class User {
 
     public void setCartItems(Set<CartItem> cartItems) {
         this.cartItems = cartItems;
+    }
+
+    public List<Order> getOrderHistory() {
+        return orderHistory;
+    }
+
+    public void setOrderHistory(List<Order> orderHistory) {
+        this.orderHistory = orderHistory;
     }
 }

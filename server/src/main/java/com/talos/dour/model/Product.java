@@ -1,6 +1,7 @@
 package com.talos.dour.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.talos.dour.enums.ProductCategoryEnum;
 import jakarta.persistence.*;
 
 import java.util.HashSet;
@@ -25,15 +26,15 @@ public class Product {
     private String imagePath;
 
     @Column(name = "category")
-    private String category;
+    private ProductCategoryEnum category;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "product")
     private Set<CartItem> assignedCart = new HashSet<>();
 
     public Product() {}
 
-    public Product(String name, int price, String imagePath, String category, Set<CartItem> assignedCart) {
+    public Product(String name, int price, String imagePath, ProductCategoryEnum category, Set<CartItem> assignedCart) {
         this.name = name;
         this.price = price;
         this.imagePath = imagePath;
@@ -73,11 +74,11 @@ public class Product {
         this.imagePath = imagePath;
     }
 
-    public String getCategory() {
+    public ProductCategoryEnum getCategory() {
         return category;
     }
 
-    public void setCategory(String category) {
+    public void setCategory(ProductCategoryEnum category) {
         this.category = category;
     }
 
