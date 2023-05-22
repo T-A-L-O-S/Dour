@@ -29,6 +29,10 @@ public class User {
     private UserTypeEnum type;
 
     @JsonIgnore
+    @Column(name = "sessionId")
+    private String sessionId;
+
+    @JsonIgnore
     @OneToMany(targetEntity = Product.class, cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "vendor_id", referencedColumnName = "id")
     private List<Product> productList;
@@ -43,12 +47,13 @@ public class User {
 
     public User() {}
 
-    public User(String name, String password, String email, String phone, UserTypeEnum type, List<Product> productList, Set<CartItem> cartItems, List<Order> orderHistory) {
+    public User(String name, String password, String email, String phone, UserTypeEnum type, String sessionId, List<Product> productList, Set<CartItem> cartItems, List<Order> orderHistory) {
         this.name = name;
         setPassword(password);
         this.email = email;
         this.phone = phone;
         this.type = type;
+        this.sessionId = sessionId;
         this.productList = productList;
         this.cartItems = cartItems;
         this.orderHistory = orderHistory;
@@ -101,6 +106,14 @@ public class User {
 
     public void setType(UserTypeEnum type) {
         this.type = type;
+    }
+
+    public String getSessionId() {
+        return sessionId;
+    }
+
+    public void setSessionId(String sessionId) {
+        this.sessionId = sessionId;
     }
 
     public List<Product> getProductList() {
