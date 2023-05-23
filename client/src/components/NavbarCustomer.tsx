@@ -17,7 +17,7 @@ export function NavbarCustomer({ onLogout }) {
         //  set userType
         setUserType("base");
         onLogout(userType);
-      }
+    }
     
     return (
         <NavbarBS className="bg-white shadow-sm mb-7">
