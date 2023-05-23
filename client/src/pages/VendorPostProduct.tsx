@@ -8,10 +8,9 @@ export function VendorPostProduct() {
     const [description, setDescription] = useState('');
     const [image, setImage] = useState('');
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        // Handle form submission here
-    };
+    const [userType, setUserType] = useState('');
+
+    
 
     return (
         <Container fluid className="h-100 pt-4">
@@ -26,7 +25,7 @@ export function VendorPostProduct() {
                     <Col md={6}>
                         <Card>
                             <Card.Body>
-                                <Form onSubmit={handleSubmit}>
+                                <Form>
                                     <Form.Group controlId="productName">
                                         <Form.Label>Product Name</Form.Label>
                                         <Form.Control type="text" placeholder="Enter product name" value={name} onChange={(e) => setName(e.target.value)} required />
