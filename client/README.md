@@ -1,4 +1,4 @@
-Dour E-commerce Website
+# **Dour**
 
 Welcome to the Dour E-commerce Website repository! This project is an online platform dedicated to selling car parts. It provides a seamless shopping experience for customers and allows vendors to easily manage their products and orders. The website is built using React, TypeScript, Bootstrap, React hooks, and context.
 
